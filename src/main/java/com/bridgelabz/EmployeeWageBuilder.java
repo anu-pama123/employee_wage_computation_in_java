@@ -1,26 +1,30 @@
 package com.bridgelabz;
-public class EmployeeWageBuilder {
+    import java.util.Random;
+    public class EmployeeWageBuilder {
     public static void main(String[] arg) {
-        final int IS_FULL_TIME=1;
-        final int IS_PART_TIME=2;
-        final int WAGE_PER_HOUR=20;
-        final int FULL_DAY_HOUR=8;
-        final int PART_TIME_HOUR=4;
-        double Employee_Check=Math.floor((Math.random() * 10)) % 3;
-        if (Employee_Check == IS_FULL_TIME)
+        int WAGE_PER_HOUR=20;
+        int PART_TIME_HOUR=4;
+        int FULL_TIME_HOUR=8;
+        double Daily_Part_Time_Employee_Wage=(WAGE_PER_HOUR * PART_TIME_HOUR);
+        double Daily_full_Time_Employee_Wage=(WAGE_PER_HOUR * FULL_TIME_HOUR);
+        Random random = new Random();
+        int full_time_or_part_time;
+        full_time_or_part_time = random.nextInt(3);
+        switch (full_time_or_part_time)
         {
-            System.out.println("Employee is full time present");
-            double Daily_Employee_Wage=(WAGE_PER_HOUR * FULL_DAY_HOUR);
-            System.out.println("Daily employee wage is = " + Daily_Employee_Wage);
+            case(0) :
+                System.out.println("Daily full time employee wage is = ");
+                System.out.println(Daily_full_Time_Employee_Wage);
+                break;
+            case (1) :
+                System.out.println("Daily part time employee wage is = ");
+                System.out.println(Daily_Part_Time_Employee_Wage);
+                break;
+            case(2) :
+                System.out.println("Employee is absent");
+                break;
         }
-        else if (Employee_Check == IS_PART_TIME)
-        {
-            System.out.println("Employee is Part time present");
-            double Daily_Employee_Wage=(WAGE_PER_HOUR * PART_TIME_HOUR);
-            System.out.println("Daily employee wage is = " + Daily_Employee_Wage);
-        }
-        else {
-            System.out.println(" Employee is absent ");
-        }
+
     }
-}
+            }
+
