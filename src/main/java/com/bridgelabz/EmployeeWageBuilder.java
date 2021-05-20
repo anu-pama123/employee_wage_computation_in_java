@@ -1,30 +1,29 @@
 package com.bridgelabz;
-    import java.util.Random;
     public class EmployeeWageBuilder {
+        public static final int IS_FULL_TIME = 1;
+        public static final int IS_PART_TIME = 2;
+        public static final int WAGE_PER_HOUR= 20;
     public static void main(String[] arg) {
-        int WAGE_PER_HOUR=20;
-        int PART_TIME_HOUR=4;
-        int FULL_TIME_HOUR=8;
-        double Daily_Part_Time_Employee_Wage=(WAGE_PER_HOUR * PART_TIME_HOUR);
-        double Daily_full_Time_Employee_Wage=(WAGE_PER_HOUR * FULL_TIME_HOUR);
-        Random random = new Random();
-        int full_time_or_part_time;
-        full_time_or_part_time = random.nextInt(3);
-        switch (full_time_or_part_time)
-        {
-            case(0) :
-                System.out.println("Daily full time employee wage is = ");
-                System.out.println(Daily_full_Time_Employee_Wage);
-                break;
-            case (1) :
-                System.out.println("Daily part time employee wage is = ");
-                System.out.println(Daily_Part_Time_Employee_Wage);
-                break;
-            case(2) :
-                System.out.println("Employee is absent");
-                break;
+        int total_salary = 0;
+        int employee_hrs=0;
+        for (int day = 1; day <= 20; day++) {
+            int employee_check = (int) (Math.floor((Math.random() * 10)) % 3);
+            switch (employee_check) {
+                case IS_FULL_TIME :
+                    employee_hrs = 8;
+                    break;
+                case IS_PART_TIME :
+                    employee_hrs = 4;
+                    break;
+                default:
+                      employee_hrs = 0;
+                      break;
+            }
+            total_salary = total_salary + (employee_hrs * WAGE_PER_HOUR);
+
         }
 
+        System.out.println("Wages for a month = " + total_salary);
     }
             }
 
